@@ -3,7 +3,7 @@ POST http://localhost:5001/vibu-comic-86908/us-central1/app/comic/add-comic/
 Content-Type: application/json
 
 {
-    "giaChap":100000,
+    "giaChap":500,
     "moTa":"Kh hay",
     "tacGia":"wannnnn",
     "tenKhac":"akio",
@@ -12,10 +12,27 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5001/vibu-comic-86908/us-central1/app/comic/add-chapter/
+POST http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/add-chapter/
 Content-Type: application/json
 
 {
-    "tenChap":"Xuân",
-    "idComic":"nSXLDGWBL8E600Oesawl"
+    "tenChap":"Chap 3",
+    "comicId":"5sVdQEhzAVBCa4u1zRfM"
+}
+
+###
+POST http://localhost:5001/vibu-comic-86908/us-central1/app/comic/delete-comic/
+Content-Type: application/json
+
+{
+    "comicId":"UGl5xVI1yFeu0XPuCfb7"
+}
+
+###
+POST http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/delete-chapter/
+Content-Type: application/json
+
+{
+    "comicId":"5sVdQEhzAVBCa4u1zRfM",
+    "tenChap":"Chap 3"
 }

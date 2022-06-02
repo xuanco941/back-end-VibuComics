@@ -4,6 +4,6 @@ const router = express.Router();
 const Comic = require('../controller/Comic');
 
 router.post("/add-comic",Comic.AddComic);
-router.post("/add-chapter", Comic.AddChapter);
+router.post("/delete-comic",Comic.DeleteComic);
 
 module.exports = router;
