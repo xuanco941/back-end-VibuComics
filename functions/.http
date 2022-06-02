@@ -1,0 +1,21 @@
+
+POST http://localhost:5001/vibu-comic-86908/us-central1/app/comic/add-comic/
+Content-Type: application/json
+
+{
+    "giaChap":100000,
+    "moTa":"Kh hay",
+    "tacGia":"wannnnn",
+    "tenKhac":"akio",
+    "tenTruyen":"conan",
+    "theLoai":"comic"
+}
+
+###
+POST http://localhost:5001/vibu-comic-86908/us-central1/app/comic/add-chapter/
+Content-Type: application/json
+
+{
+    "tenChap":"Xuân",
+    "idComic":"nSXLDGWBL8E600Oesawl"
+}
