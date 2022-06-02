@@ -5,7 +5,6 @@ const Admin = require('../controller/Admin');
 
 
 router.post('/signin', Admin.SignIn);
-router.post('/signup', Admin.SignUp);
 router.post('/refresh-token' , Admin.RefreshToken);
 
 module.exports = router;

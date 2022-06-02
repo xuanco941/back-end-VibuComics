@@ -36,3 +36,12 @@ Content-Type: application/json
     "comicId":"5sVdQEhzAVBCa4u1zRfM",
     "tenChap":"Chap 3"
 }
+
+###
+POST http://localhost:5001/vibu-comic-86908/us-central1/app/admin/signin/
+Content-Type: application/json
+
+{
+    "username":"admin_ptpm",
+    "password":"admin_ptpm"
+}
