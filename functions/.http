@@ -16,8 +16,8 @@ POST http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/add-chapter/
 Content-Type: application/json
 
 {
-    "tenChap":"Chap 3",
-    "comicId":"5sVdQEhzAVBCa4u1zRfM"
+    "tenChap":"Chap7",
+    "comicId":"oUSmeLrb9dMv0YVAwWn4"
 }
 
 ###
@@ -50,7 +50,7 @@ Content-Type: application/json
 GET http://localhost:5001/vibu-comic-86908/us-central1/app/comic/get-all-comics/
 
 ###
-GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-all-chapters?comicId=i53wUvGUBWjU7kp9AZrW
+GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-all-chapters?comicId=oUSmeLrb9dMv0YVAwWn4
 
 ###
-GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-a-chapter?comicId=i53wUvGUBWjU7kp9AZrW&tenChap=Chapter1
+GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-a-chapter?comicId=oUSmeLrb9dMv0YVAwWn4&tenChap=Chap7

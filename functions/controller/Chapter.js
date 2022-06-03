@@ -19,8 +19,8 @@ class Chapter{
   async GetAChapters(req,res){
     const {comicId,tenChap} = req.query;
     try {
-      const querySnapshot = await db.collection('comics').doc(comicId).collection('chaps').where('tenChap','==',tenChap);
-      return res.status(200).json(querySnapshot.get());
+      const querySnapshot = await (await db.collection('comics').doc(comicId).collection('chaps').doc(tenChap).get()).data();
+      return res.status(200).json(querySnapshot);
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -34,7 +34,7 @@ class Chapter{
     let comicId = req.body.comicId;
     await db.collection('comics').doc(comicId).collection('chaps').doc(tenChap).set({
       tenChap: tenChap
-    }).then(() => {
+        }).then(() => {
         return res.status(200).json({
             status: 'success',
             message: 'Thêm chapter thành công.',
