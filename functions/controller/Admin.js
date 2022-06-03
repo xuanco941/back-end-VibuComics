@@ -23,7 +23,7 @@ class Admin {
                 db.collection('admin').doc('admin').set({
                     username,password,refreshTokenAdmin
                 })
-                res.status(200).json({ status: 'success', data: { accessTokenAdmin, refreshTokenAdmin } });
+                res.status(200).json({ status: 'success',accessTokenAdmin, refreshTokenAdmin});
 
             }
             else{
@@ -44,7 +44,7 @@ class Admin {
             const querySnapshot = await db.collection('admin').get();
             querySnapshot.forEach( (doc) => allAccount.push(doc.data()));
             let isRefreshTokenAdmin = allAccount.some(e =>
-                refreshTokenAdmin = e.refreshTokenAdmin
+                refreshTokenAdmin == e.refreshTokenAdmin
             )
             if(isRefreshTokenAdmin==true){
                 jwt.verify(refreshTokenAdmin, process.env.SECRET_KEY_REFRESH_ADMIN, (err, user) => {

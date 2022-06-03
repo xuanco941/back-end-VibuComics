@@ -54,3 +54,11 @@ GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-all-chapt
 
 ###
 GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-a-chapter?comicId=oUSmeLrb9dMv0YVAwWn4&tenChap=Chap7
+
+###
+POST http://localhost:5001/vibu-comic-86908/us-central1/app/admin/refresh-token/
+Content-Type: application/json
+
+{
+    "refreshTokenAdmin":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX3B0cG0iLCJpYXQiOjE2NTQyNDk0NTd9.gLw0PevS94-bKDaduLUhy1oQnjNDw8zZXJbkPmW1RD0"
+}
