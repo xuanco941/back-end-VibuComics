@@ -39,9 +39,14 @@ class Admin {
     async RefreshToken(req, res) {
         if (!req.body.refreshTokenAdmin) res.status(403).json({ status: 'error', message: 'Không tìm thấy Refresh Token Admin' });
         const refreshTokenAdmin = req.body.refreshTokenAdmin;
-        await AdminSchema.findOne({ refreshTokenAdmin }).then(user => {
-            if (!user) res.status(403).json({ status: 'error', message: 'Refresh Token Admin không hợp lệ' });
-            else {
+
+        const allAccount = [];
+            const querySnapshot = await db.collection('admin').get();
+            querySnapshot.forEach( (doc) => allAccount.push(doc.data()));
+            let isRefreshTokenAdmin = allAccount.some(e =>
+                refreshTokenAdmin = e.refreshTokenAdmin
+            )
+            if(isRefreshTokenAdmin==true){
                 jwt.verify(refreshTokenAdmin, process.env.SECRET_KEY_REFRESH_ADMIN, (err, user) => {
                     if (err) res.status(401).json({ status: 'error', message: 'Xác thực Refresh Token Admin gặp lỗi' });
                     else {
@@ -50,7 +55,10 @@ class Admin {
                     }
                 });
             }
-        })
+            else{
+                res.status(403).json({ status: 'error', message: 'Refresh Token Admin không hợp lệ' });
+            }
+
     }
 
 }
