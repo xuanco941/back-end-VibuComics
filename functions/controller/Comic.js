@@ -2,6 +2,17 @@ const { db } = require('../config/firebase');
 
 class Comic {
 
+  async GetAllComics(req,res){
+    try {
+      const allComics = [];
+      const querySnapshot = await db.collection('comics').get();
+      querySnapshot.forEach( (doc) => allComics.push(doc.data()));
+      return res.status(200).json(allComics);
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
+
   //Thêm comic
   async AddComic(req, res) {
     let giaChap = req.body.giaChap;

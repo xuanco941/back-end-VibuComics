@@ -1,6 +1,32 @@
 const { db } = require('../config/firebase');
 
 class Chapter{
+
+  // xem cac chapter
+  async GetAllChapters(req,res){
+    const {comicId} = req.query;
+    try {
+      const allChapter = [];
+      const querySnapshot = await db.collection('comics').doc(comicId).collection('chaps').get();
+      querySnapshot.forEach( (doc) => allChapter.push(doc.data()));
+      return res.status(200).json(allChapter);
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
+
+  // xem 1 chapter
+  async GetAChapters(req,res){
+    const {comicId,tenChap} = req.query;
+    try {
+      const querySnapshot = await db.collection('comics').doc(comicId).collection('chaps').where('tenChap','==',tenChap);
+      return res.status(200).json(querySnapshot.get());
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
+
+
     //Thêm chapter
   async AddChapter(req, res) {
     let linkAnh = [];

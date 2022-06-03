@@ -45,3 +45,12 @@ Content-Type: application/json
     "username":"admin_ptpm",
     "password":"admin_ptpm"
 }
+
+###
+GET http://localhost:5001/vibu-comic-86908/us-central1/app/comic/get-all-comics/
+
+###
+GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-all-chapters?comicId=i53wUvGUBWjU7kp9AZrW
+
+###
+GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-a-chapter?comicId=i53wUvGUBWjU7kp9AZrW&tenChap=Chapter1
