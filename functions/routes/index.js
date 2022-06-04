@@ -1,7 +1,6 @@
 const ComicRoute = require('./ComicRoute');
 const AdminRoute = require('./AdminRoute');
 const ChapterRoute = require('./ChapterRoute');
-const CheckAdmin = require('../middleware/CheckAdmin');
 
 function Route (app){
     app.use('/admin', AdminRoute);
