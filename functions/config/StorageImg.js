@@ -1,6 +1,6 @@
 const multer = require('multer');
 
-const storageimg = multer.diskStorage({
+module.exports = storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads')
     },
@@ -8,9 +8,6 @@ const storageimg = multer.diskStorage({
         cb(null, file.originalname)
     }
 });
-
-
-const upload = multer({ storage: storageimg }).array('image');
 
 // app.post('/', upload, async (req, res) => {
 //     let url = [];

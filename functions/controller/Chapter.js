@@ -29,9 +29,9 @@ class Chapter{
 
     //Thêm chapter
   async AddChapter(req, res) {
-    let linkAnh = [];
     let tenChap = req.body.tenChap;
     let comicId = req.body.comicId;
+    console.log(req.files);
     await db.collection('comics').doc(comicId).collection('chaps').doc(tenChap).set({
       tenChap: tenChap
         }).then(() => {

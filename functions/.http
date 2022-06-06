@@ -1,6 +1,7 @@
 
 POST http://localhost:5001/vibu-comic-86908/us-central1/app/comic/add-comic/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX3B0cG0iLCJpYXQiOjE2NTQzMjc5OTgsImV4cCI6MTY1NDMyNzk5OH0.fBe_ZzLyd4oApuhlVqLJsSSoUGQOlwRzIlqYYPMIoBk
 
 {
     "giaChap":500,
@@ -60,5 +61,5 @@ POST http://localhost:5001/vibu-comic-86908/us-central1/app/admin/refresh-token/
 Content-Type: application/json
 
 {
-    "refreshTokenAdmin":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX3B0cG0iLCJpYXQiOjE2NTQyNDk0NTd9.gLw0PevS94-bKDaduLUhy1oQnjNDw8zZXJbkPmW1RD0"
+    "refreshTokenAdmin":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX3B0cG0iLCJpYXQiOjE2NTQzMjY5MjN9.VMjiiZm0lnW8KUF-PKecU_A9_sI-m0yORYA_HuwMUXM"
 }

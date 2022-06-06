@@ -15,12 +15,13 @@ class Comic {
 
   //Thêm comic
   async AddComic(req, res) {
-    let giaChap = req.body.giaChap;
-    let moTa = req.body.moTa;
-    let tacGia = req.body.tacGia;
-    let tenKhac = req.body.tenKhac;
-    let tenTruyen = req.body.tenTruyen;
-    let theLoai = req.body.theLoai;
+    let giaChap = req.body.giaChap ? req.body.giaChap : 0;
+    let moTa = req.body.moTa ? req.body.moTa : '';
+    let tacGia = req.body.tacGia ? req.body.tacGia : '';
+    let tenKhac = req.body.tenKhac ? req.body.tenKhac : '';
+    let tenTruyen = req.body.tenTruyen ? req.body.tenTruyen : '';
+    let theLoai = req.body.theLoai ? req.body.theLoai : '';
+    console.log(req.files);
 
     try {
       const comic = db.collection('comics').doc();
