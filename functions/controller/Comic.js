@@ -38,8 +38,7 @@ class Comic {
 
       res.status(200).json({
         status: 'success',
-        message: 'Thêm truyện thành công.',
-        data: comicObject,
+        message: 'Thêm truyện thành công.'
       });
     } catch (error) {
       res.status(500).json(error.message);

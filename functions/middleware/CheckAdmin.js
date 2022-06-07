@@ -8,7 +8,6 @@ const CheckAdmin = (req, res, next) => {
         jwt.verify(token, process.env.SECRET_KEY_ADMIN, (err, data) => {
             if (err) {
                 res.status(403).json({ status: 'error', message: 'Check token admin failure' });
-                console.log(err);
             }
             else{
                 req.user = data;
