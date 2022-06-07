@@ -21,7 +21,6 @@ class Comic {
     let tenKhac = req.body.tenKhac ? req.body.tenKhac : '';
     let tenTruyen = req.body.tenTruyen ? req.body.tenTruyen : '';
     let theLoai = req.body.theLoai ? req.body.theLoai : '';
-    console.log(req.files);
 
     try {
       const comic = db.collection('comics').doc();
