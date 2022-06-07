@@ -1,12 +1,15 @@
-const { db } = require('../config/firebase');
+const { bucket, db, admin } = require('../config/firebase');
+const { cloudinary } = require('../config/cloudinary');
+const fs = require('fs');
+
 
 class Comic {
 
-  async GetAllComics(req,res){
+  async GetAllComics(req, res) {
     try {
       const allComics = [];
       const querySnapshot = await db.collection('comics').get();
-      querySnapshot.forEach( (doc) => allComics.push(doc.data()));
+      querySnapshot.forEach((doc) => allComics.push(doc.data()));
       return res.status(200).json(allComics);
     } catch (error) {
       return res.status(500).json(error.message);
@@ -22,11 +25,26 @@ class Comic {
     let tenTruyen = req.body.tenTruyen ? req.body.tenTruyen : '';
     let theLoai = req.body.theLoai ? req.body.theLoai : '';
 
+    //up img to cloudinary and get link
+    let links = [];
+    if (req.files) {
+      for (const element of req.files) {
+        await cloudinary.uploader.upload('uploads/' + element.filename, 
+        { folder: `${tenTruyen}`, 
+        public_id: "linkAnhTruyen" },
+          function (error, result) {
+            links.push(result.url);
+            fs.unlinkSync('./uploads/' + element.filename);
+          });
+      }
+    }
+
+    // save on firebase
     try {
       const comic = db.collection('comics').doc();
       const comicObject = {
         id: comic.id,
-        linkAnhTruyen: "",
+        linkAnhTruyen: links[0],
         giaChap,
         moTa,
         tacGia,
@@ -81,7 +99,7 @@ class Comic {
     }
   };
 
-  
+
 }
 
 module.exports = new Comic;
