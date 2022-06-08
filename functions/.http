@@ -54,7 +54,7 @@ GET http://localhost:5001/vibu-comic-86908/us-central1/app/comic/get-all-comics/
 GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-all-chapters?comicId=oUSmeLrb9dMv0YVAwWn4
 
 ###
-GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-a-chapter?comicId=oUSmeLrb9dMv0YVAwWn4&tenChap=Chap7
+GET http://localhost:5001/chapter/get-a-chapter?comicId=uPggG0FwKDceq9ZWGno4&tenChap=Chap2
 
 ###
 POST http://localhost:5001/vibu-comic-86908/us-central1/app/admin/refresh-token/

@@ -54,6 +54,7 @@ class Chapter {
 
 
     await db.collection('comics').doc(comicId).collection('chaps').doc(tenChap).set({
+      idChap: tenChap.trim(),
       tenChap: tenChap,
       links: links
     }).then(() => {
@@ -62,7 +63,8 @@ class Chapter {
         message: 'Thêm chapter thành công.',
         data: {
           comicId,
-          tenChap
+          tenChap,
+          links
         }
       });
     }).catch((error) => {
