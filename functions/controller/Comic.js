@@ -31,7 +31,7 @@ class Comic {
       for (const element of req.files) {
         await cloudinary.uploader.upload('uploads/' + element.filename, 
         { folder: `${tenTruyen}`, 
-        public_id: "linkAnhTruyen" },
+        public_id: "anh_bia_truyen" },
           function (error, result) {
             links.push(result.url);
             fs.unlinkSync('./uploads/' + element.filename);
