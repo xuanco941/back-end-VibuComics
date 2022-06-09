@@ -18,6 +18,6 @@ app.use(cors());
 const Route = require('./routes/index');
 Route(app);
 
-app.listen(5001,() => console.log('http://localhost:5001'));
+app.listen(process.env.PORT || 5001,() => console.log('http://localhost:5001'));
 
 // exports.app = functions.https.onRequest(app);
