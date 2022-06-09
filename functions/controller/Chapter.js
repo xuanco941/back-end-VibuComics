@@ -34,11 +34,56 @@ class Chapter {
     let tenChap = req.body.tenChap;
     let comicId = req.body.comicId;
     let tenTruyen = req.body.tenTruyen;
+    let links = [];
 
     //up img to cloudinary and get link
-    let links = [];
+
     if (req.files) {
+
+      // sap xep file theo thu tu filename(number).png/jpg...
+      let arrElementSort = [];
       for (const element of req.files) {
+        let positionOfDot = element.filename.lastIndexOf('.');
+        let index = 999;
+        let chapNumber3 = element.filename.slice(positionOfDot - 3, positionOfDot);
+        let chapNumber2 = element.filename.slice(positionOfDot - 2, positionOfDot);
+        let chapNumber1 = element.filename.slice(positionOfDot - 1, positionOfDot);
+
+        if (!isNaN(chapNumber3)) {
+          index = parseInt(chapNumber3);
+        }
+        else if (!isNaN(chapNumber2)) {
+          index = parseInt(chapNumber2);
+        }
+        else if (!isNaN(chapNumber1)) {
+          index = parseInt(chapNumber1);
+        }
+        else {
+          index = 999;
+        }
+
+        arrElementSort.push({element, index});
+      }
+
+      // sap xep
+      let length = arrElementSort.length;
+      for (let i = 0; i < length - 1; i++) {
+        let min = i;
+        for (let j = i + 1; j < length; j++) {
+          if (arrElementSort[j].index < arrElementSort[min].index) {
+            min = j;
+          }
+        }
+        let temp = arrElementSort[i];
+        arrElementSort[i] = arrElementSort[min];
+        arrElementSort[min] = temp;
+
+      }
+
+      // get all files to array
+      let arrFiles = arrElementSort.map((e) => e.element);
+      //upload to cloudinary
+      for (const element of arrFiles) {
         await cloudinary.uploader.upload('uploads/' + element.filename,
           {
             folder: `${tenTruyen}/${tenChap}`,
