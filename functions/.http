@@ -30,12 +30,12 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/delete-chapter/
+POST http://localhost:5001/chapter/delete-chapter/
 Content-Type: application/json
 
 {
-    "comicId":"5sVdQEhzAVBCa4u1zRfM",
-    "tenChap":"Chap 3"
+    "comicId":"jiau8ytYBoGWMbGFouz3",
+    "tenChap":"Chapter 1"
 }
 
 ###

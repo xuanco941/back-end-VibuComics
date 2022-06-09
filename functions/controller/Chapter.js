@@ -53,10 +53,12 @@ class Chapter {
 
 
 
+    let myarr = tenChap.split(" ");
+    let idChap = myarr.join('');
     await db.collection('comics').doc(comicId).collection('chaps').doc(tenChap).set({
-      idChap: tenChap.trim(),
-      tenChap: tenChap,
-      links: links
+      idChap,
+      tenChap,
+      links
     }).then(() => {
       return res.status(200).json({
         status: 'success',
