@@ -18,20 +18,24 @@ class Comic {
 
   //Thêm comic
   async AddComic(req, res) {
-    let giaChap = req.body.giaChap ? req.body.giaChap : 0;
+    let giaChap = req.body.giaChap ? parseInt(req.body.giaChap) : 0;
     let moTa = req.body.moTa ? req.body.moTa : '';
     let tacGia = req.body.tacGia ? req.body.tacGia : '';
     let tenKhac = req.body.tenKhac ? req.body.tenKhac : '';
     let tenTruyen = req.body.tenTruyen ? req.body.tenTruyen : '';
-    let theLoai = req.body.theLoai ? req.body.theLoai : '';
+    let theLoai_ = req.body.theLoai ? req.body.theLoai : '';
+    let theLoai = [];
+    theLoai.push(theLoai_);
 
     //up img to cloudinary and get link
     let links = [];
     if (req.files) {
       for (const element of req.files) {
-        await cloudinary.uploader.upload('uploads/' + element.filename, 
-        { folder: `${tenTruyen}`, 
-        public_id: "anh_bia_truyen" },
+        await cloudinary.uploader.upload('uploads/' + element.filename,
+          {
+            folder: `${tenTruyen}`,
+            public_id: "anh_bia_truyen"
+          },
           function (error, result) {
             links.push(result.url);
             fs.unlinkSync('./uploads/' + element.filename);
@@ -50,7 +54,8 @@ class Comic {
         tacGia,
         tenKhac,
         tenTruyen,
-        theLoai
+        theLoai,
+        daHoanThanh: false
       };
       comic.set(comicObject);
 
