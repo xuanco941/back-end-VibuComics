@@ -18,7 +18,9 @@ app.use(cors());
 const Route = require('./routes/index');
 Route(app);
 
-const port = 5001;
+const port = process.env.PORT || 5500;
 app.listen(port,() => console.log(`http://localhost:${port}`));
+
+module.exports = app;
 
 // exports.app = functions.https.onRequest(app);

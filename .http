@@ -1,5 +1,5 @@
 
-POST http://localhost:5001/vibu-comic-86908/us-central1/app/comic/add-comic/
+POST http://localhost:5001/comic/add-comic/
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX3B0cG0iLCJpYXQiOjE2NTQzMjc5OTgsImV4cCI6MTY1NDMyNzk5OH0.fBe_ZzLyd4oApuhlVqLJsSSoUGQOlwRzIlqYYPMIoBk
 
@@ -13,7 +13,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkb
 }
 
 ###
-POST http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/add-chapter/
+POST http://localhost:5001/chapter/add-chapter/
 Content-Type: application/json
 
 {
@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5001/vibu-comic-86908/us-central1/app/comic/delete-comic/
+POST http://localhost:5001/comic/delete-comic/
 Content-Type: application/json
 
 {
@@ -39,30 +39,27 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5001/vibu-comic-86908/us-central1/app/admin/signin/
+POST http://localhost:5001/admin/signin/
 Content-Type: application/json
 
 {
-    "username":"admin_ptpm",
-    "password":"admin_ptpm"
+    "username":"admin",
+    "password":"admin"
 }
 
 ###
-GET http://localhost:5001/vibu-comic-86908/us-central1/app/comic/get-all-comics/
+GET http://localhost:5001/comic/get-all-comics/
 
 ###
-GET http://localhost:5001/vibu-comic-86908/us-central1/app/chapter/get-all-chapters?comicId=oUSmeLrb9dMv0YVAwWn4
+GET http://localhost:5001/chapter/get-all-chapters?comicId=oUSmeLrb9dMv0YVAwWn4
 
 ###
 GET http://localhost:5001/chapter/get-a-chapter?comicId=uPggG0FwKDceq9ZWGno4&tenChap=Chap2
 
 ###
-POST http://localhost:5001/vibu-comic-86908/us-central1/app/admin/refresh-token/
+POST http://localhost:5001/admin/refresh-token/
 Content-Type: application/json
 
 {
     "refreshTokenAdmin":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX3B0cG0iLCJpYXQiOjE2NTQzMjY5MjN9.VMjiiZm0lnW8KUF-PKecU_A9_sI-m0yORYA_HuwMUXM"
 }
-
-### 
-GET http://localhost:5001/user/get-all-users

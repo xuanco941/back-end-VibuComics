@@ -57,7 +57,7 @@ class Comic {
         theLoai,
         daHoanThanh: false
       };
-      comic.set(comicObject);
+      await comic.set(comicObject);
 
       res.status(200).json({
         status: 'success',
