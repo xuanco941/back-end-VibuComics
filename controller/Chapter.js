@@ -103,7 +103,8 @@ class Chapter {
     await db.collection('comics').doc(comicId).collection('chaps').doc(tenChap).set({
       idChap,
       tenChap,
-      links
+      links,
+      idUserUnlock:[]
     }).then(() => {
       return res.status(200).json({
         status: 'success',
@@ -111,7 +112,8 @@ class Chapter {
         data: {
           comicId,
           tenChap,
-          links
+          links,
+          idUserUnlock:['']
         }
       });
     }).catch((error) => {
